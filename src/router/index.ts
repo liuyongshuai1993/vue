@@ -3,7 +3,7 @@
  * @Author: 帅
  * @Date: 2023-01-31 14:58:49
  * @LastEditors: 帅
- * @LastEditTime: 2023-01-31 16:27:07
+ * @LastEditTime: 2023-02-01 09:46:32
  */
 /*
  * @Description:
@@ -20,7 +20,7 @@
  * @LastEditTime: 2023-01-31 16:22:18
  */
 import { createRouter, createWebHashHistory } from "vue-router";
-import HomeView from "../views/HomeView.vue";
+import Layout from "@/layout/index.vue";
 
 const baseRouter = [
   {
@@ -46,14 +46,22 @@ const router = createRouter({
     {
       path: "/",
       name: "home",
-      component: HomeView,
+      component: Layout,
+      redirect: "/home",
+      children: [
+        {
+          path: "/home",
+          name: "home",
+          component: () => import("@/views/home/index.vue"),
+        },
+        {
+          path: "/about",
+          name: "about",
+          component: () => import("../views/AboutView.vue"),
+        },
+        ...baseRouter,
+      ],
     },
-    {
-      path: "/about",
-      name: "about",
-      component: () => import("../views/AboutView.vue"),
-    },
-    ...baseRouter,
   ],
 });
 

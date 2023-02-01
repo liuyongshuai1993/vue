@@ -1,8 +1,8 @@
 // we can add this to custom namespace, default is 'el'
-@forward "element-plus/theme-chalk/src/mixins/config.scss" with (
-  $namespace: "ep"
-);
-// ...
+// @forward "element-plus/theme-chalk/src/mixins/config.scss" with (
+//   $namespace: "ep"
+// );
+// ...设置自定义颜色
 @forward "element-plus/theme-chalk/src/common/var.scss" with (
   $colors: (
     "primary": (
