@@ -1,9 +1,16 @@
+<!--
+ * @Description: 
+ * @Author: 帅
+ * @Date: 2023-02-01 13:35:59
+ * @LastEditors: 帅
+ * @LastEditTime: 2023-02-02 09:04:32
+-->
 <template>
   <el-header class="common-head display">
     <div class="common-head-left display">
-      <div class="collapse display">
-        <el-icon size="32"><Expand /></el-icon>
-        <!-- <el-icon><Fold /></el-icon> -->
+      <div class="collapse display" @click="toggle">
+        <el-icon size="32" v-if="!togBoolean"><Expand /></el-icon>
+        <el-icon size="32" v-else><Fold /></el-icon>
       </div>
       <el-breadcrumb separator="/">
         <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
@@ -41,6 +48,11 @@
 
 <script setup lang="ts">
 import TagView from "../tagView/index.vue";
+import { ref } from "vue";
+let togBoolean = ref<boolean>(false);
+const toggle = () => {
+  togBoolean.value = !togBoolean.value;
+};
 </script>
 
 <style lang="scss" scoped>
@@ -54,7 +66,7 @@ $linear_gradient: linear-gradient(90deg, #fff 70%, #77e19d);
   box-shadow: 0 2px 3px 0 rgb(0 0 0 / 30%);
   align-items: center;
   justify-content: space-between;
-  padding: 0 10px;
+  padding: 0 10px 0 0;
   border-bottom: 1px solid #e4e7ed;
 
   &-left {
