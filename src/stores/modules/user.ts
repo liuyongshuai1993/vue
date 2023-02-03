@@ -9,7 +9,7 @@ export const UserStore = defineStore({
       // 所有这些属性都将自动推断其类型
       token: "isTokenData",
       userInfo: null,
-      role: [],
+      role: "admin",
     };
   },
 });

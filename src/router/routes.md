@@ -4,6 +4,7 @@
  modules 异步路由
  index.ts 主要路由入口
  permission.ts 路由拦击等操作
+ guard 路由拦截
 
  ` npm install --save nprogress `
  - 说明方法

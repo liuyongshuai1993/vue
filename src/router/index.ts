@@ -6,9 +6,13 @@
  * @LastEditTime: 2023-01-31 16:22:18
  */
 import { createRouter, createWebHashHistory } from "vue-router";
+import NProgress from "nprogress";
+import "nprogress/nprogress.css";
 import { NOT_FOUND_ROUTE, REDIRECT_MAIN } from "./routes/base";
 import { appRoutes } from "./routes";
+import createRouteGuard from "./guard";
 
+NProgress.configure({ showSpinner: false }); //禁用进度环
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: [
@@ -29,5 +33,5 @@ const router = createRouter({
     REDIRECT_MAIN,
   ],
 });
-
+createRouteGuard(router);
 export default router;
